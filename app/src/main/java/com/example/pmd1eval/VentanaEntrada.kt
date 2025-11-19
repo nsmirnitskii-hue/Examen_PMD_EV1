@@ -4,7 +4,9 @@ package com.example.pmd1eval
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -17,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
@@ -39,7 +42,7 @@ fun VentanaEntrada(navController: NavController, lista: MutableList<Int>) {
         Button({
             try {
                 if (numero.isEmpty()){
-                    Toast.makeText(context, "Introduce  numero", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Introduce un numero", Toast.LENGTH_SHORT).show()
                 }else{
                     lista.add(numero.toInt())
                     Toast.makeText(context, "EL numero $numero se ha insertado",Toast.LENGTH_SHORT).show()
@@ -53,5 +56,9 @@ fun VentanaEntrada(navController: NavController, lista: MutableList<Int>) {
         Button({
             navController.navigate("resultado")
         }) {Text("sumar")}
+        Spacer(modifier = Modifier.height(16.dp))
+        Button({
+            navController.navigate("Persona")
+        }) { Text("Ir a ventana Persona ")}
     }
 }
